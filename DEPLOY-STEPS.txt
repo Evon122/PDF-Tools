@@ -1,0 +1,12 @@
+NETLIFY (5 minute, free, no card)
+1. https://app.netlify.com e giye Sign up (Google/GitHub/Email).
+2. Add new site -> Deploy manually.
+3. Ei zip Extract korun. "PDFNova-Netlify" folder-ta (jar bhitore index.html ache) browser-er box e drag kore felun.
+4. Link pabe: https://random-name.netlify.app  -> Site configuration -> Change site name diye nijer pochondo-moto nam din (jemon pdfnova.netlify.app).
+5. Ei link PC o mobile duitei kaj korbe. Phone e Chrome menu -> "Add to Home screen".
+
+GITHUB PAGES
+1. github.com e New repository (Public), nam: pdfnova.
+2. "uploading an existing file" -> folder-er sob file/folder drag korun -> Commit.
+3. Settings -> Pages -> Source: Deploy from a branch -> main, / (root) -> Save.
+4. 1-2 minute por link: https://USERNAME.github.io/pdfnova/

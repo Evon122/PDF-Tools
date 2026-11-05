@@ -1,0 +1,63 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Edit &amp; Sign PDF - PDFNova</title>
+<link rel="icon" href="img/mark.png"><link rel="manifest" href="manifest.webmanifest"><meta name="theme-color" content="#0b2e66"><link rel="apple-touch-icon" href="img/icon-192.png">
+<link rel="stylesheet" href="style.css"><link rel="stylesheet" href="edit.css"></head><body>
+<header class="top"><div class="wrap bar"><a class="brand" href="index.html"><img src="img/mark.png" alt=""><span class="wm">PDF<b>Nova</b></span></a>
+<nav><a href="index.html">All tools</a><a class="pri" href="edit.html">Edit &amp; Sign PDF</a></nav></div></header>
+
+<main id="start"><div class="wrap work">
+<a class="back" href="index.html">&larr; All tools</a><h2>Edit &amp; Sign PDF</h2>
+<p class="lead">Change existing text, add text in any font (Bangla too), move and rotate it by degrees, add images, shapes, highlights and your signature.</p>
+<div class="drop" id="drop"><b>Drop a PDF here</b><p>Your file stays on your device.</p><button class="btn red" id="pick" type="button">Choose PDF</button><input type="file" id="file" accept="application/pdf,.pdf" hidden></div>
+<div class="msg" id="smsg" role="status"></div>
+</div></main>
+
+<div id="app" class="hide">
+ <div class="etb" id="tools">
+  <button data-t="select" class="on" title="Select, move, resize, rotate">&#10148; Select</button>
+  <button data-t="edit" title="Click any existing text to change it">&#9998; Edit text</button>
+  <button data-t="text" title="Add new text">T Text</button>
+  <button data-t="image" title="Add an image">&#128247; Image</button>
+  <button data-t="sign" title="Draw, type or upload a signature">&#9997; Sign</button>
+  <button data-t="draw" title="Freehand drawing">&#12336; Draw</button>
+  <button data-t="line" title="Line">&#9585; Line</button>
+  <button data-t="rect" title="Rectangle">&#9645; Box</button>
+  <button data-t="ellipse" title="Ellipse">&#9711; Oval</button>
+  <button data-t="hl" title="Highlight">&#9646; Highlight</button>
+  <button data-t="white" title="Cover with a white box">&#9647; Whiteout</button>
+  <span class="sp"></span>
+  <button id="bUndo" title="Undo (Ctrl+Z)">&#8630;</button><button id="bRedo" title="Redo (Ctrl+Y)">&#8631;</button>
+  <button id="zOut" title="Zoom out">&minus;</button><span id="zv">100%</span><button id="zIn" title="Zoom in">+</button>
+  <button class="dl" id="bSave">Download PDF</button>
+ </div>
+ <div class="epb" id="props">
+  <label>Font <select id="fam"></select></label>
+  <label>Size <input id="size" type="number" min="4" max="300" step="1"></label>
+  <button id="bold" title="Bold"><b>B</b></button><button id="ital" title="Italic"><i>I</i></button>
+  <label>Colour <input id="col" type="color"></label>
+  <label class="fl">Fill <input id="fill" type="color"></label>
+  <label class="fl"><input id="nofill" type="checkbox"> no fill</label>
+  <label class="sw">Line <input id="sw" type="number" min="0" max="40" step="0.5"></label>
+  <label>Opacity <input id="op" type="range" min="10" max="100" step="5"></label>
+  <label>Rotate&deg; <input id="rot" type="number" step="1"></label>
+  <button id="rl" title="Rotate 15&deg; left">&#8634;</button><button id="rr" title="Rotate 15&deg; right">&#8635;</button>
+  <button id="dup" title="Duplicate (Ctrl+D)">Copy</button><button id="del" title="Delete">&#128465; Delete</button>
+ </div>
+ <div class="ehint" id="hint">Arrow keys move the selected item (Shift = 10x). [ and ] rotate by 1&deg; (Shift = 15&deg;). Drag the round handle above an item to rotate it freely.</div>
+ <div id="pages"></div>
+</div>
+
+<dialog id="sigd"><h3>Your signature</h3>
+ <div class="tabs" id="stabs"><button data-s="draw" class="on">Draw</button><button data-s="type">Type</button><button data-s="up">Upload</button></div>
+ <div id="s-draw"><canvas id="sc" width="560" height="200"></canvas>
+  <div class="srow"><button id="sclear" class="btn alt sm" type="button">Clear</button><label>Ink <input type="color" id="scol" value="#0b2e66"></label></div></div>
+ <div id="s-type" class="hide"><input id="stext" placeholder="Type your name" value=""><select id="sfont"><option value="greatvibes">Great Vibes</option><option value="pacifico">Pacifico</option><option value="lobster">Lobster</option><option value="hind">Hind Siliguri (Bangla)</option></select><canvas id="sp" width="560" height="140"></canvas></div>
+ <div id="s-up" class="hide"><p class="hint">Choose a photo or scan of your signature (PNG is best).</p><input type="file" id="sfile" accept="image/*"></div>
+ <div class="btns"><button class="btn alt" id="scancel" type="button">Cancel</button><button class="btn red" id="suse" type="button">Use signature</button></div>
+</dialog>
+<input type="file" id="imgf" accept="image/*" hidden>
+<div id="toast" role="status"></div>
+<footer class="rights">&copy; 2026 &middot; All rights reserved by Md. Rashedul Islam</footer>
+<script src="vendor/pdf-lib.min.js"></script><script src="vendor/fontkit.umd.min.js"></script><script src="vendor/pdf.min.js"></script><script src="vendor/jszip.min.js"></script>
+<script src="common.js"></script><script src="edit.js"></script>
+</body></html>
